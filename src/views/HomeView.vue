@@ -17,8 +17,12 @@
   </div>
 </template>
 <script setup>
-import { reactive, computed, watch, onBeforeUpdate, onUpdated } from "vue";
+import { reactive, computed, watch, onMounted } from "vue";
 const appTitle = "My Amazing counter App";
+
+onMounted(() => {
+  console.log("do stuff related to app title");
+});
 
 const counterData = reactive({ count: 0, title: "My Counter" });
 
@@ -42,12 +46,8 @@ const increaseCounter = (amount) => {
 const decreaseCounter = (amount) => {
   counterData.count = counterData.count - amount;
 };
-
-onBeforeUpdate(() => {
-  console.log("onBeforeUpdate");
-});
-onUpdated(() => {
-  console.log("onUpdated");
+onMounted(() => {
+  console.log("do stuff related to Counter");
 });
 </script>
 <!--<script>
