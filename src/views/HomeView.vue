@@ -7,6 +7,10 @@
       <span class="counter">{{ counter }}</span>
       <button @click="increaseCounter" class="btn">+</button>
     </div>
+    <div class="edit">
+      <h4>edit counter title:</h4>
+      <input v-model="counterTitle" type="text" />
+    </div>
   </div>
 </template>
 <script setup>
@@ -32,5 +36,8 @@ const decreaseCounter = () => {
 .counter {
   font-size: 40px;
   margin: 10px;
+}
+.edit {
+  margin-top: 60px;
 }
 </style>
