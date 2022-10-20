@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>{{ appTitle }}</h1>
+    <h2 ref="appTitleRef">{{ appTitle }}</h2>
     <h3>{{ counterData.title }}:</h3>
     <div>
       <button @click="decreaseCounter(2)" class="btn">--</button>
@@ -17,14 +17,19 @@
   </div>
 </template>
 <script setup>
-import { reactive, computed, watch, onMounted } from "vue";
+/*
+  imports
+*/
+import { ref, reactive, computed, watch, onMounted, nextTick } from "vue";
 import { vAutofocus } from "@/directives/vAutofocus";
-const appTitle = "My Amazing counter App";
-
+/*
+  app title
+*/
+const appTitle = "My Ok Counter App";
+const appTitleRef = ref(null);
 onMounted(() => {
-  console.log("do stuff related to app title");
+  console.log(`The app title is ${appTitleRef.value.offsetWidth} px wide!`);
 });
-
 const counterData = reactive({ count: 0, title: "My Counter" });
 
 watch(
@@ -47,9 +52,6 @@ const increaseCounter = (amount) => {
 const decreaseCounter = (amount) => {
   counterData.count = counterData.count - amount;
 };
-onMounted(() => {
-  console.log("do stuff related to Counter");
-});
 </script>
 <!-- 
 <script>
