@@ -12,7 +12,7 @@
     <p>This counter is {{ oddOrEven }}</p>
     <div class="edit">
       <h4>edit counter title:</h4>
-      <input v-model="counterData.title" type="text" />
+      <input v-model="counterData.title" type="text" v-autofocus />
     </div>
   </div>
 </template>
@@ -49,8 +49,49 @@ const decreaseCounter = (amount) => {
 onMounted(() => {
   console.log("do stuff related to Counter");
 });
+/*
+directives
+*/
+const vAutofocus = {
+  mounted: (el) => {
+    el.focus();
+  },
+};
 </script>
-
+<!-- 
+<script>
+export default {
+  data() {
+    return {
+      count: 0,
+    };
+  },
+  computed: {
+    myComputedProperty() {
+      // perform logic based on a data property
+      return "my result";
+    },
+  },
+  watch: {
+    count(newCount, oldCount) {
+      if (newCount == 20) alert("asdfasd");
+    },
+  },
+  mounted() {
+    console.log("mounted");
+  },
+  unmounted() {
+    console.log("unmounted");
+  },
+  directives: {
+    autofocus: {
+      mounted(el) {
+        el.focus();
+      },
+    },
+  },
+};
+</script>-->
 <style>
 .home {
   text-align: center;
