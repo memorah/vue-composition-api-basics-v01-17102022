@@ -50,15 +50,6 @@ onMounted(() => {
   console.log("do stuff related to Counter");
 });
 </script>
-<!--<script>
-export default {
-  computed: {
-    myComputedProperty() {
-      //perform logic based on a data property
-    },
-  },
-};
-</script>-->
 
 <style>
 .home {
