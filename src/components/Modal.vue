@@ -1,8 +1,8 @@
 <template>
   <teleport to=".modals-container">
     <div class="modal">
-      <h1>This is modal</h1>
-      <p>Lorem ipsum do lore</p>
+      <h1><slot name="title"></slot></h1>
+      <slot />
       <button>Hide modal</button>
     </div>
   </teleport>
