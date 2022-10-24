@@ -3,11 +3,13 @@
     <h1>Modals</h1>
     <button @click="showModal = true">Show modal</button>
   </div>
-  <div v-if="showModal" class="modal">
-    <h1>This is modal</h1>
-    <p>Lorem ipsum do lore</p>
-    <button @click="showModal = false">Hide modal</button>
-  </div>
+  <teleport to=".modals-container">
+    <div v-if="showModal" class="modal">
+      <h1>This is modal</h1>
+      <p>Lorem ipsum do lore</p>
+      <button @click="showModal = false">Hide modal</button>
+    </div>
+  </teleport>
 </template>
 
 <script setup>
@@ -28,5 +30,11 @@ const showModal = ref(false);
   background: #00bd7e;
   border-radius: 5px;
   color: white;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 </style>
