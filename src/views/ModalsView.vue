@@ -10,6 +10,7 @@
     <pre>{{ showDarkModals }}</pre>
     <button @click="showModal = true">Show modal</button>
     <component
+      :userData="userData"
       v-model="showModal"
       :is="showDarkModals ? ModalDark : Modal"
       title="My modal title (via prop)"
@@ -27,7 +28,8 @@
 import { ref } from "vue";
 import Modal from "@/components/Modal.vue";
 import ModalDark from "@/components/ModalDark.vue";
-
+/* props */
+const props = defineProps({ userData: { type: Object } });
 /* modals */
 const showDarkModals = ref(false);
 const showModal = ref(false);
