@@ -3,6 +3,7 @@
     <div class="modal">
       <h1><slot name="title"></slot></h1>
       <slot />
+
       <button>Hide modal</button>
     </div>
   </teleport>
@@ -11,6 +12,7 @@
 <style>
 .modal {
   padding: 10px;
+
   position: absolute;
   left: 0;
   top: 0;
