@@ -7,7 +7,7 @@
       <button @click="counter.decreaseCounter(1)" class="btn">-</button>
       <span class="counter">{{ counter.counterData.count }}</span>
       <button @click="counter.increaseCounter(1, $event)" class="btn">+</button>
-      <button @click="counter.ncreaseCounter(2)" class="btn">++</button>
+      <button @click="counter.increaseCounter(2)" class="btn">++</button>
     </div>
     <p>This counter is {{ counter.oddOrEven }}</p>
     <div class="edit">
