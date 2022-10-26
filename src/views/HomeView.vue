@@ -1,18 +1,18 @@
 <template>
   <div class="home">
     <h2 ref="appTitleRef">{{ appTitle }}</h2>
-    <h3>{{ counterData.title }}:</h3>
+    <h3>{{ counter.counterData.title }}:</h3>
     <div>
-      <button @click="decreaseCounter(2)" class="btn">--</button>
-      <button @click="decreaseCounter(1)" class="btn">-</button>
-      <span class="counter">{{ counterData.count }}</span>
-      <button @click="increaseCounter(1, $event)" class="btn">+</button>
-      <button @click="increaseCounter(2)" class="btn">++</button>
+      <button @click="counter.decreaseCounter(2)" class="btn">--</button>
+      <button @click="counter.decreaseCounter(1)" class="btn">-</button>
+      <span class="counter">{{ counter.counterData.count }}</span>
+      <button @click="counter.increaseCounter(1, $event)" class="btn">+</button>
+      <button @click="counter.ncreaseCounter(2)" class="btn">++</button>
     </div>
-    <p>This counter is {{ oddOrEven }}</p>
+    <p>This counter is {{ counter.oddOrEven }}</p>
     <div class="edit">
       <h4>edit counter title:</h4>
-      <input v-model="counterData.title" type="text" v-autofocus />
+      <input v-model="counter.counterData.title" type="text" v-autofocus />
     </div>
   </div>
 </template>
@@ -31,8 +31,7 @@ const appTitleRef = ref(null);
 onMounted(() => {
   console.log(`The app title is ${appTitleRef.value.offsetWidth} px wide!`);
 });
-const { counterData, oddOrEven, increaseCounter, decreaseCounter } =
-  useCounter();
+const counter = useCounter();
 </script>
 
 <style>
