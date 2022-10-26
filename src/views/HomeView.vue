@@ -20,48 +20,21 @@
 /*
   imports
 */
-import { ref, reactive, computed, watch, onMounted, nextTick } from "vue";
+import { ref, onMounted } from "vue";
+import { useCounter } from "@/use/useCounter";
 import { vAutofocus } from "@/directives/vAutofocus";
 /*
   app title
 */
 const appTitle = "My Ok Counter App";
 const appTitleRef = ref(null);
+onMounted(() => {
+  console.log(`The app title is ${appTitleRef.value.offsetWidth} px wide!`);
+});
+const { counterData, oddOrEven, increaseCounter, decreaseCounter } =
+  useCounter();
 </script>
-<!-- 
-<script>
-export default {
-  data() {
-    return {
-      count: 0,
-    };
-  },
-  computed: {
-    myComputedProperty() {
-      // perform logic based on a data property
-      return "my result";
-    },
-  },
-  watch: {
-    count(newCount, oldCount) {
-      if (newCount == 20) alert("asdfasd");
-    },
-  },
-  mounted() {
-    console.log("mounted");
-  },
-  unmounted() {
-    console.log("unmounted");
-  },
-  directives: {
-    autofocus: {
-      mounted(el) {
-        el.focus();
-      },
-    },
-  },
-};
-</script>-->
+
 <style>
 .home {
   text-align: center;
