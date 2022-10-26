@@ -27,34 +27,6 @@ import { vAutofocus } from "@/directives/vAutofocus";
 */
 const appTitle = "My Ok Counter App";
 const appTitleRef = ref(null);
-onMounted(() => {
-  console.log(`The app title is ${appTitleRef.value.offsetWidth} px wide!`);
-});
-const counterData = reactive({ count: 0, title: "My Counter" });
-
-watch(
-  () => counterData.count,
-  (newCount, oldCount) => {
-    if (newCount === 20) {
-      alert("Way to do!");
-    }
-  }
-);
-
-const oddOrEven = computed(() => {
-  if (counterData.count % 2 === 0) return "even";
-  return "odd";
-});
-
-const increaseCounter = async (amount, e) => {
-  counterData.count = counterData.count + amount;
-  await nextTick();
-  console.log("updated");
-};
-
-const decreaseCounter = (amount) => {
-  counterData.count = counterData.count - amount;
-};
 </script>
 <!-- 
 <script>
