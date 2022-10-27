@@ -9,7 +9,7 @@
       <button @click="counter.increaseCounter(1)" class="btn">+</button>
       <button @click="counter.increaseCounter(2)" class="btn">++</button>
     </div>
-    <p>This counter is odd/even</p>
+    <p>This counter is {{ counter.oddOrEven }}</p>
     <div class="edit">
       <h4>edit counter title:</h4>
       <input v-model="counter.title" type="text" v-autofocus />
