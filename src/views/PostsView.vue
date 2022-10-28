@@ -10,11 +10,11 @@
     <textarea v-autofocus></textarea>
     <div>
       <button
-        @click="increaseCounter(1)"
+        @click="counter.increaseCounter(1)"
         class="counter-button"
-        :class="{ yellow: oddOrEven === 'odd' }"
+        :class="{ yellow: counter.oddOrEven === 'odd' }"
       >
-        {{ counterData.count }}
+        {{ counter.count }}
       </button>
     </div>
   </div>
@@ -22,7 +22,7 @@
 <script setup>
 import { ref } from "vue";
 import { vAutofocus } from "@/directives/vAutofocus";
-import { useCounter } from "@/use/useCounter";
+import { useCounterStore } from "@/stores/counter";
 /* posts */
 
 const posts = ref([
@@ -39,8 +39,8 @@ const posts = ref([
     title: "Post 3",
   },
 ]);
-/*counter btn */
-const { counterData, increaseCounter, oddOrEven } = useCounter();
+/*counter*/
+const counter = useCounterStore();
 </script>
 <style>
 .counter-button {
